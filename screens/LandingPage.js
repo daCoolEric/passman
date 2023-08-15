@@ -1,23 +1,37 @@
 import {
   StyleSheet,
+  SafeAreaView,
   ImageBackground,
   Dimensions,
+  Platform,
+  StatusBar,
   Text,
   View,
+  Image,
 } from "react-native";
+import { useFonts, Inter_900Black } from "@expo-google-fonts/inter";
 import React from "react";
 
-const image = require("../assets/bg.png");
+const bg_image = require("../assets/bg.png");
+const logo = require("../assets/logo.png");
 const screenHeight = Dimensions.get("window").height;
 const screenWidth = Dimensions.get("window").width;
 
 const LandingPage = () => {
   return (
-    <View style={styles.container}>
-      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+    <SafeAreaView style={styles.container}>
+      <ImageBackground
+        source={bg_image}
+        resizeMode="cover"
+        style={styles.image}
+      >
         <View style={styles.logoContainer}>
           <View style={styles.logoContent}>
-            <Text>Logo and App Name goes here</Text>
+            <Image source={logo} style={styles.logo} />
+
+            <View style={styles.appNameContainer}>
+              <Text style={styles.appName}>PassMan</Text>
+            </View>
           </View>
         </View>
         <View style={styles.textContainer}>
@@ -31,7 +45,7 @@ const LandingPage = () => {
           </View>
         </View>
       </ImageBackground>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -43,11 +57,58 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    height: screenHeight,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   image: {
     flex: 1,
     justifyContent: "center",
     width: screenWidth,
     height: screenHeight,
+  },
+  logoContainer: {
+    //borderWidth: 1,
+    // borderColor: "red",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  logoContent: {
+    width: "75%",
+    height: "100%",
+    // borderWidth: 1,
+    // borderColor: "white",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+
+  logo: {
+    width: "30%",
+    height: "100%",
+    resizeMode: "contain",
+    // borderWidth: 1,
+    // borderColor: "white",
+  },
+  appNameContainer: {
+    // borderWidth: 1,
+    // borderColor: "blue",
+    width: "65%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  appName: {
+    color: "white",
+    fontSize: 45,
+    fontWeight: "bold",
+  },
+  textContainer: {
+    borderWidth: 1,
+    borderColor: "gold",
+    flex: 1,
+  },
+  buttonContainer: {
+    borderWidth: 1,
+    borderColor: "green",
+    flex: 1,
   },
 });
