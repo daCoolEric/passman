@@ -37,7 +37,15 @@ const LandingPage = () => {
         </View>
         <View style={styles.textContainer}>
           <View style={styles.textContent}>
-            <Text>Text will go here</Text>
+            <View style={styles.toptext}>
+              <Text style={styles.toptextStyle}>Transparent &</Text>
+              <Text style={styles.toptextStyle}>Secure</Text>
+            </View>
+            <View>
+              <Text style={styles.slogan}>
+                Only you can see your personal data
+              </Text>
+            </View>
           </View>
         </View>
         <View style={styles.buttonContainer}>
@@ -105,9 +113,29 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   textContainer: {
-    borderWidth: 1,
-    borderColor: "gold",
+    // borderWidth: 1,
+    // borderColor: "gold",
     flex: 1,
+  },
+  textContent: {
+    // borderWidth: 1,
+    // borderColor: "white",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "75%",
+  },
+  toptext: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  toptextStyle: {
+    fontWeight: "bold",
+    color: "white",
+    fontSize: 40,
+  },
+  slogan: {
+    color: "#7aa1fe",
+    fontSize: 18.5,
   },
   buttonContainer: {
     // borderWidth: 1,

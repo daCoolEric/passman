@@ -1,12 +1,19 @@
 import { StyleSheet, Text, Pressable, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
 const createNewAccount = () => {};
 
 const LandingPageButtons = ({ name }) => {
+  const createNewAccount = "Create new account";
   return (
     <Pressable onPress={createNewAccount} style={styles.buttonContainer}>
-      <View style={styles.button}>
+      <View
+        style={
+          name === createNewAccount
+            ? styles.createAccountButton
+            : styles.signInButton
+        }
+      >
         <Text style={styles.text}>{name}</Text>
       </View>
     </Pressable>
@@ -24,13 +31,23 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  button: {
+  createAccountButton: {
     width: "95%",
     height: "83%",
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#2a6cff",
     borderRadius: 10,
+  },
+  signInButton: {
+    width: "95%",
+    height: "83%",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#6a3cf7",
+    borderRadius: 10,
+    borderColor: "white",
+    borderWidth: 2,
   },
   text: {
     color: "white",
