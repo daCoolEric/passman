@@ -10,6 +10,7 @@ import {
   Image,
 } from "react-native";
 import { useFonts, Inter_900Black } from "@expo-google-fonts/inter";
+import LandingPageButtons from "../components/LandingPageButtons";
 import React from "react";
 
 const bg_image = require("../assets/bg.png");
@@ -41,7 +42,9 @@ const LandingPage = () => {
         </View>
         <View style={styles.buttonContainer}>
           <View style={styles.buttonContent}>
-            <Text>Buttons will go here</Text>
+            <LandingPageButtons name="Create new account" />
+            <LandingPageButtons name="Sign In" />
+            {/* <Text>Buttons</Text> */}
           </View>
         </View>
       </ImageBackground>
@@ -107,8 +110,17 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   buttonContainer: {
-    borderWidth: 1,
-    borderColor: "green",
+    // borderWidth: 1,
+    // borderColor: "green",
     flex: 1,
+  },
+  buttonContent: {
+    // borderWidth: 1,
+    // borderColor: "gold",
+    width: "100%",
+    height: "90%",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });
