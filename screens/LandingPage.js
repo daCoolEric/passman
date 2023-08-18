@@ -18,7 +18,7 @@ const logo = require("../assets/logo.png");
 const screenHeight = Dimensions.get("window").height;
 const screenWidth = Dimensions.get("window").width;
 
-const LandingPage = () => {
+const LandingPage = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground
@@ -50,9 +50,16 @@ const LandingPage = () => {
         </View>
         <View style={styles.buttonContainer}>
           <View style={styles.buttonContent}>
-            <LandingPageButtons name="Create new account" />
-            <LandingPageButtons name="Sign In" />
-            {/* <Text>Buttons</Text> */}
+            <LandingPageButtons
+              name="Create new account"
+              action="SignUpPage"
+              navigation={navigation}
+            />
+            <LandingPageButtons
+              name="Sign In"
+              action="SignInPage"
+              navigation={navigation}
+            />
           </View>
         </View>
       </ImageBackground>

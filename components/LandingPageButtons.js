@@ -1,12 +1,16 @@
 import { StyleSheet, Text, Pressable, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 import React, { useState } from "react";
 
 const createNewAccount = () => {};
 
-const LandingPageButtons = ({ name }) => {
+const LandingPageButtons = ({ name, navigation, action }) => {
   const createNewAccount = "Create new account";
   return (
-    <Pressable onPress={createNewAccount} style={styles.buttonContainer}>
+    <Pressable
+      onPress={() => navigation.navigate(action)}
+      style={styles.buttonContainer}
+    >
       <View
         style={
           name === createNewAccount
