@@ -6,6 +6,7 @@ import SignInPage from "./screens/SignInPage";
 import SignUpPage from "./screens/SignUpPage";
 import AddPasswordPage from "./screens/AddPasswordPage";
 import EditPasswordPage from "./screens/EditPasswordPage";
+import PasswordResetPage from "./screens/PasswordResetPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +38,11 @@ export default function App() {
           name="EditPasswordPage"
           options={{ headerShown: false }}
           component={EditPasswordPage}
+        />
+        <Stack.Screen
+          name="PasswordResetPage"
+          options={{ headerShown: false }}
+          component={PasswordResetPage}
         />
       </Stack.Navigator>
     </NavigationContainer>

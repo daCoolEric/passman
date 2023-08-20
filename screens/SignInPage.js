@@ -9,17 +9,22 @@ import {
   Text,
   View,
   Image,
+  Pressable,
 } from "react-native";
 import KeyboardAvoidingWrapper from "../components/KeyboardAvoidingWrapper";
 import React from "react";
+import SignButtons from "../components/SignButtons";
+import SignLink from "../components/SignLinks";
 
 const emailIcon = require("../assets/email.png");
+const padLockIcon = require("../assets/padlock.png");
+const eyeCloseIcon = require("../assets/eyeClose.png");
 const bg_image = require("../assets/loginpath.png");
 
 const screenHeight = Dimensions.get("window").height;
 const screenWidth = Dimensions.get("window").width;
 
-const SignInPage = () => {
+const SignInPage = ({ navigation }) => {
   return (
     <KeyboardAvoidingWrapper>
       <SafeAreaView style={styles.container}>
@@ -48,27 +53,42 @@ const SignInPage = () => {
                 </View>
                 <View style={styles.passwordContainer}>
                   <View style={styles.iconBox}>
-                    <Image source={emailIcon} style={styles.emailIcon} />
+                    <Image source={padLockIcon} style={styles.emailIcon} />
                   </View>
 
                   <TextInput
                     style={styles.inputContainer}
                     type="password"
+                    secureTextEntry={true}
                     placeholder="Password"
                   />
+                  <View style={styles.iconBox}>
+                    <Image source={eyeCloseIcon} style={styles.emailIcon} />
+                  </View>
                 </View>
                 <View style={styles.forgotPasswordContainer}>
-                  <Text>Forgot Password?</Text>
+                  <Pressable
+                    onPress={() => navigation.navigate("PasswordResetPage")}
+                  >
+                    <Text style={[styles.text, { color: "#6a3cf7" }]}>
+                      Forgot Password?
+                    </Text>
+                  </Pressable>
                 </View>
               </View>
               <View style={styles.submitSection}>
-                <View style={styles.loginButton}>
-                  <Text>Sign In</Text>
-                </View>
+                <SignButtons name="Sign In" />
                 <View style={styles.infoSection}>
-                  <Text>Don't have an account?</Text>
-                  <View style={{ marginLeft: "10px", textDecoration: "none" }}>
-                    <Text> Sign Up</Text>
+                  <View>
+                    <Text style={styles.text}>Don't have an account?</Text>
+                  </View>
+
+                  <View>
+                    <SignLink
+                      name="Sign Up"
+                      navigation={navigation}
+                      action={"SignUpPage"}
+                    />
                   </View>
                 </View>
               </View>
@@ -147,7 +167,7 @@ const styles = StyleSheet.create({
   },
   emailIcon: {
     flex: 1,
-    width: "100%",
+    width: "80%",
     resizeMode: "contain",
   },
   inputContainer: {
@@ -186,13 +206,24 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  text: {
+    fontSize: 20,
+  },
   submitSection: {
     // borderWidth: 1,
     // borderColor: "gold",
     flex: 1,
     width: "95%",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     alignItems: "center",
-    backgroundColor: "blue",
+  },
+  infoSection: {
+    // borderWidth: 1,
+    // borderColor: "gold",
+    flex: 0.5,
+    width: "85%",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center",
   },
 });
