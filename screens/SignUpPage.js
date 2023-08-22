@@ -15,6 +15,7 @@ import React from "react";
 import SignButtons from "../components/SignButtons";
 import SignLink from "../components/SignLinks";
 import Input from "../components/Input";
+import ModalComp from "../components/Modal";
 
 const emailIcon = require("../assets/email.png");
 const padLockIcon = require("../assets/padlock.png");
@@ -59,7 +60,8 @@ const SignUpPage = ({ navigation }) => {
                 />
               </View>
               <View style={styles.submitSection}>
-                <SignButtons name="Sign In" />
+                {/* <ModalComp name="Sign Up" /> */}
+                <SignButtons name="Sign Up" />
                 <View style={styles.infoSection}>
                   <View>
                     <Text style={styles.text}>Already have an account?</Text>
