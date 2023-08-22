@@ -16,6 +16,7 @@ import KeyboardAvoidingWrapper from "../components/KeyboardAvoidingWrapper";
 import React from "react";
 import SignButtons from "../components/SignButtons";
 import SignLink from "../components/SignLinks";
+import ModalComp from "../components/Modal";
 
 const emailIcon = require("../assets/email.png");
 const padLockIcon = require("../assets/padlock.png");
@@ -24,18 +25,6 @@ const bg_image = require("../assets/loginpath.png");
 
 const screenHeight = Dimensions.get("window").height;
 const screenWidth = Dimensions.get("window").width;
-
-const LoadingModal = styled.View`
-  // outline: 2px solid red;
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 const SignInPage = ({ navigation }) => {
   return (
@@ -90,7 +79,7 @@ const SignInPage = ({ navigation }) => {
                 </View>
               </View>
               <View style={styles.submitSection}>
-                <SignButtons name="Sign In" />
+                <ModalComp name="Sign In" />
                 <View style={styles.infoSection}>
                   <View>
                     <Text style={styles.text}>Don't have an account?</Text>
@@ -102,13 +91,13 @@ const SignInPage = ({ navigation }) => {
                       navigation={navigation}
                       action={"SignUpPage"}
                     />
-                    <LoadingModal></LoadingModal>
                   </View>
                 </View>
               </View>
             </View>
           </View>
         </ImageBackground>
+        {/* <View style={styles.loadingModal}></View> */}
       </SafeAreaView>
     </KeyboardAvoidingWrapper>
   );
@@ -238,6 +227,16 @@ const styles = StyleSheet.create({
     width: "85%",
     flexDirection: "row",
     justifyContent: "space-evenly",
+    alignItems: "center",
+  },
+  loadingModal: {
+    // outline: 2px solid red;
+    width: screenWidth,
+    height: screenHeight,
+    position: "fixed",
+    top: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
+    justifyContent: "center",
     alignItems: "center",
   },
 });
