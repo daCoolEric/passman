@@ -33,5 +33,8 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 7636dd04df146ecf6c6ac497fa2993d9b1ca4104

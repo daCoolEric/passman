@@ -11,7 +11,6 @@ import {
   Image,
   Pressable,
 } from "react-native";
-import styled from "styled-components/native";
 import KeyboardAvoidingWrapper from "../components/KeyboardAvoidingWrapper";
 import React from "react";
 import SignButtons from "../components/SignButtons";
@@ -97,7 +96,6 @@ const SignInPage = ({ navigation }) => {
             </View>
           </View>
         </ImageBackground>
-        {/* <View style={styles.loadingModal}></View> */}
       </SafeAreaView>
     </KeyboardAvoidingWrapper>
   );
@@ -227,16 +225,6 @@ const styles = StyleSheet.create({
     width: "85%",
     flexDirection: "row",
     justifyContent: "space-evenly",
-    alignItems: "center",
-  },
-  loadingModal: {
-    // outline: 2px solid red;
-    width: screenWidth,
-    height: screenHeight,
-    position: "fixed",
-    top: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.8)",
-    justifyContent: "center",
     alignItems: "center",
   },
 });

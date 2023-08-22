@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View, Modal, Pressable } from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
 import React from "react";
 
 const SignButtons = ({ name }) => {
   return (
-    <Pressable style={styles.button} onPress={() => loadModal()}>
+    <Pressable style={styles.button}>
       <Text style={styles.text}>{name}</Text>
     </Pressable>
   );
