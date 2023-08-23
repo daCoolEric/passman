@@ -60,8 +60,8 @@ const SignUpPage = ({ navigation }) => {
                 />
               </View>
               <View style={styles.submitSection}>
-                {/* <ModalComp name="Sign Up" /> */}
-                <SignButtons name="Sign Up" />
+                <ModalComp name="Sign Up" />
+                {/* <SignButtons name="Sign Up" /> */}
                 <View style={styles.infoSection}>
                   <View>
                     <Text style={styles.text}>Already have an account?</Text>

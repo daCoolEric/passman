@@ -78,8 +78,12 @@ const SignInPage = ({ navigation }) => {
                 </View>
               </View>
               <View style={styles.submitSection}>
-                {/* <ModalComp name="Sign In" /> */}
-                <SignButtons name="Sign In" />
+                <ModalComp
+                  name="Sign In"
+                  action="Sign In"
+                  navigation={navigation}
+                />
+                {/* <SignButtons name="Sign In" /> */}
                 <View style={styles.infoSection}>
                   <View>
                     <Text style={styles.text}>Don't have an account?</Text>

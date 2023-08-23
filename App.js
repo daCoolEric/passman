@@ -7,6 +7,7 @@ import SignUpPage from "./screens/SignUpPage";
 import AddPasswordPage from "./screens/AddPasswordPage";
 import EditPasswordPage from "./screens/EditPasswordPage";
 import PasswordResetPage from "./screens/PasswordResetPage";
+import HomePage from "./screens/HomePage";
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,11 @@ export default function App() {
           name="SignUpPage"
           options={{ headerShown: false }}
           component={SignUpPage}
+        />
+        <Stack.Screen
+          name="HomePage"
+          options={{ headerShown: false }}
+          component={HomePage}
         />
         <Stack.Screen
           name="AddPasswordPage"
