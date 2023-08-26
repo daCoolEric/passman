@@ -8,12 +8,13 @@ import AddPasswordPage from "./screens/AddPasswordPage";
 import EditPasswordPage from "./screens/EditPasswordPage";
 import PasswordResetPage from "./screens/PasswordResetPage";
 import HomePage from "./screens/HomePage";
+import KeyboardAvoidingWrapper from "./components/KeyboardAvoidingWrapper";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer style={{ background: "white" }}>
       <Stack.Navigator initialRouteName="LandingPage">
         <Stack.Screen
           name="LandingPage"

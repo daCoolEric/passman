@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     height: screenHeight,
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 10,
   },
   image: {
     flex: 1,
@@ -110,13 +110,13 @@ const styles = StyleSheet.create({
   appNameContainer: {
     // borderWidth: 1,
     // borderColor: "blue",
-    width: "65%",
+    width: "68%",
     justifyContent: "center",
     alignItems: "center",
   },
   appName: {
     color: "white",
-    fontSize: 45,
+    fontSize: 40,
     fontWeight: "bold",
   },
   textContainer: {

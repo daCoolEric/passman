@@ -204,8 +204,8 @@ const styles = StyleSheet.create({
   infoSection: {
     // borderWidth: 1,
     // borderColor: "gold",
-    flex: 0.5,
-    width: "85%",
+    flex: 0.7,
+    width: "100%",
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",

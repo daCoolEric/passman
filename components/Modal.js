@@ -43,7 +43,10 @@ const ModalComp = ({ name, action, navigation }) => {
               </Pressable>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
-                onPress={() => navigation.navigate("HomePage")}
+                onPress={() => {
+                  navigation.navigate("HomePage");
+                  setModalVisible(!modalVisible);
+                }}
               >
                 <Text style={styles.textStyle}>HomePage</Text>
               </Pressable>

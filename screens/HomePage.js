@@ -13,11 +13,31 @@ const Tab = createBottomTabNavigator();
 const HomePage = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Favorites" component={Favorites} />
-      <Tab.Screen name="Social Media" component={SocialMedia} />
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Email" component={Emails} />
-      <Tab.Screen name="Wallet" component={EWallets} />
+      <Tab.Screen
+        name="Favorites"
+        component={Favorites}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Social Media"
+        component={SocialMedia}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Email"
+        component={Emails}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Wallet"
+        component={EWallets}
+        options={{ headerShown: false }}
+      />
     </Tab.Navigator>
   );
 };

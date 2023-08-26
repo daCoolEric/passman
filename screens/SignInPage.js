@@ -31,7 +31,7 @@ const SignInPage = ({ navigation }) => {
       <SafeAreaView style={styles.container}>
         <ImageBackground
           source={bg_image}
-          resizeMode="cover"
+          resizeMode="stretch"
           style={styles.image}
         >
           <View style={styles.textContainer}>
@@ -118,10 +118,13 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   image: {
+    borderWidth: 1,
+    borderColor: "blue",
     flex: 1,
     justifyContent: "center",
     width: screenWidth,
     height: screenHeight,
+    paddingBottom: 0,
   },
   textContainer: {
     // borderWidth: 1,
@@ -216,10 +219,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   submitSection: {
-    // borderWidth: 1,
-    // borderColor: "gold",
+    borderWidth: 1,
+    borderColor: "gold",
     flex: 1,
     width: "95%",
+    height: "100%",
     justifyContent: "space-evenly",
     alignItems: "center",
   },
