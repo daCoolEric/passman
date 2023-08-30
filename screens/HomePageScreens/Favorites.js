@@ -3,19 +3,55 @@ import {
   Text,
   View,
   SafeAreaView,
-  ScrollView,
   Dimensions,
   Platform,
   StatusBar,
   Image,
+  FlatList,
+  ScrollView,
 } from "react-native";
 import React from "react";
 import AddButton from "../../components/AddButton";
+import Overview from "../../components/Overview";
+import Password from "../../components/Password";
 
 const screenWidth = Dimensions.get("screen").width;
 const screenHeight = Dimensions.get("screen").height;
 
 const logo = require("../../assets/addlogo.png");
+const profile = require("../../assets/profile.png");
+
+const logoIcon = require("../../assets/logo.png");
+const emailIcon = require("../../assets/mail.png");
+const socialIcon = require("../../assets/social.png");
+const ewalletIcon = require("../../assets/ewallet.png");
+
+const OverviewData = [
+  {
+    id: 1,
+    icon: logoIcon,
+    title: "Saved passwords",
+    counts: 32,
+  },
+  {
+    id: 2,
+    icon: emailIcon,
+    title: "Saved emails",
+    counts: 32,
+  },
+  {
+    id: 3,
+    icon: socialIcon,
+    title: "Saved social media",
+    counts: 32,
+  },
+  {
+    id: 4,
+    icon: ewalletIcon,
+    title: "Saved ewallets",
+    counts: 32,
+  },
+];
 
 const Favorites = () => {
   return (
@@ -35,12 +71,14 @@ const Favorites = () => {
             </Text>
           </View>
         </View>
-        <View style={styles.profile}>
-          <Text>Profile Pic</Text>
+        <View style={styles.profilewrapper}>
+          <View style={styles.profile}>
+            <Image source={profile} style={styles.image} />
+          </View>
         </View>
       </View>
       <View style={styles.main}>
-        <View style={styles.addsection}>
+        <View style={[styles.addsection, styles.shadowProps]}>
           <View style={styles.addwrapper}>
             <View style={styles.logo}>
               <View style={styles.logowrapper}>
@@ -60,11 +98,37 @@ const Favorites = () => {
             </View>
           </View>
         </View>
-        <View style={styles.overviewsection}>
-          <Text>overview</Text>
-        </View>
+
+        <FlatList
+          horizontal
+          data={OverviewData}
+          renderItem={({ item }) => (
+            <Overview title={item.title} icon={item.icon} count={item.counts} />
+          )}
+          keyExtractor={(item) => item.id}
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{
+            alignItems: "center",
+          }}
+          style={styles.overviewsection}
+        />
         <View style={styles.latestsection}>
-          <Text>latest</Text>
+          <View style={styles.wrapper}>
+            <View style={styles.innerwrapper}>
+              <View style={styles.title}>
+                <Text>Saved password</Text>
+              </View>
+              <View style={styles.button}>
+                <Text>Button</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.mainwrapper}>
+            <ScrollView style={styles.maininner}>
+              <Password />
+              <Password />
+            </ScrollView>
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -110,9 +174,23 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "flex-start",
   },
+  profilewrapper: {
+    // borderWidth: 1,
+    // borderColor: "green",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "20%",
+  },
   profile: {
-    borderWidth: 1,
-    borderColor: "green",
+    // borderWidth: 1,
+    // borderColor: "green",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+  },
+  image: {
+    resizeMode: "contain",
+    width: "90%",
   },
   main: {
     // borderWidth: 1,
@@ -129,6 +207,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  shadowProps: {
+    shadowColor: "#171717",
+    shadowOffset: { width: -2, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 3,
+    elevation: 10,
+  },
   addwrapper: {
     // borderWidth: 1,
     // borderColor: "blue",
@@ -136,6 +221,11 @@ const styles = StyleSheet.create({
     height: "90%",
     backgroundColor: "#4dc37d",
     borderRadius: 15,
+    shadowColor: "#171717",
+    shadowOffset: { width: -2, height: 4 },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
+    elevation: 7,
   },
   logo: {
     // borderWidth: 1,
@@ -159,6 +249,11 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     width: "13%",
     height: "90%",
+  },
+  overviewsection: {
+    // borderWidth: 1,
+    // borderColor: "brown",
+    flex: 1,
   },
   info: {
     // borderWidth: 1,
@@ -194,14 +289,37 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  overviewsection: {
-    borderWidth: 1,
-    borderColor: "brown",
+  latestsection: {
+    // borderWidth: 1,
+    // borderColor: "brown",
     flex: 1,
   },
-  latestsection: {
-    borderWidth: 1,
-    borderColor: "brown",
+  wrapper: {
+    // borderWidth: 1,
+    // borderColor: "brown",
+    flex: 0.2,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  innerwrapper: {
+    // borderWidth: 1,
+    // borderColor: "brown",
     flex: 1,
+    width: "95%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  mainwrapper: {
+    // borderWidth: 1,
+    // borderColor: "brown",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  maininner: {
+    // borderWidth: 1,
+    // borderColor: "brown",
+    flex: 1,
+    width: "95%",
   },
 });
