@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Dimensions, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  Image,
+  Pressable,
+} from "react-native";
 import React from "react";
 
 const screenWidth = Dimensions.get("screen").width;
@@ -9,7 +16,7 @@ const emailIcon = require("../assets/mail.png");
 const socialIcon = require("../assets/social.png");
 const ewalletIcon = require("../assets/ewallet.png");
 
-const Password = () => {
+const Password = ({ navigation }) => {
   return (
     <View style={styles.wrapper}>
       <View style={styles.infosection}>
@@ -30,14 +37,14 @@ const Password = () => {
           </View>
         </View>
       </View>
-      <View style={styles.gotosection}>
+      <Pressable style={styles.gotosection}>
         <View style={styles.iconcontainer}>
           <Image
             source={arrowIcon}
             style={{ resizeMode: "contain", width: "80%" }}
           />
         </View>
-      </View>
+      </Pressable>
     </View>
   );
 };
@@ -57,6 +64,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    shadowColor: "#171717",
+    shadowOffset: { width: 2, height: 3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
     elevation: 5,
   },
   infosection: {

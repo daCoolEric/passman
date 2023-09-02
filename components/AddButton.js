@@ -2,9 +2,13 @@ import { StyleSheet, View, Text, Pressable, Image } from "react-native";
 import React from "react";
 
 const addIcon = require("../assets/add.png");
-const AddButton = () => {
+
+const AddButton = ({ navigation, action }) => {
   return (
-    <Pressable style={styles.button}>
+    <Pressable
+      style={styles.button}
+      onPress={() => navigation.navigate(action)}
+    >
       <View style={styles.content}>
         <View style={styles.textwrapper}>
           <Text style={styles.text}>Add new</Text>
