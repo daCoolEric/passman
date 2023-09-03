@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
     // borderColor: "blue",
     width: "95%",
     height: "90%",
-    backgroundColor: "#4dc37d",
+    backgroundColor: "#6a3cf7",
     borderRadius: 15,
     shadowColor: "#171717",
     shadowOffset: { width: -2, height: 4 },

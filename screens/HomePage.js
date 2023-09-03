@@ -34,7 +34,7 @@ const screenOptions = {
     left: 0,
     elevation: 0,
     height: Platform.OS == "ios" ? 90 : 60,
-    background: "#fff",
+    backgroundColor: "#6a3cf7",
   },
 };
 
@@ -196,24 +196,24 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   active: {
-    tintColor: "blue",
+    tintColor: "#fff",
   },
   inactive: {
-    tintColor: "#C6C6C6",
+    tintColor: "#a1a1a1",
   },
   activename: {
     fontSize: 15,
     fontWeight: "bold",
-    color: "#16247d",
+    color: "#fff",
   },
   inactivename: {
     fontSize: 12,
-    color: "#C6C6C6",
+    color: "#a1a1a1",
   },
   addIconContainer: {
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#e6e6e6",
+    backgroundColor: "#6a3cf7",
     width: Platform.OS == "ios" ? 60 : 70,
     height: Platform.OS == "ios" ? 60 : 70,
     top: Platform.OS == "ios" ? -25 : -25,
