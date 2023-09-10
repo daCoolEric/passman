@@ -18,12 +18,14 @@ import SignLink from "../components/SignLinks";
 import Input from "../components/Input";
 import ModalComp from "../components/Modal";
 import Select from "../components/Select";
+import SelectComp from "../components/SelectComp";
 
 const emailIcon = require("../assets/email.png");
 const padLockIcon = require("../assets/padlock.png");
 const eyeCloseIcon = require("../assets/eyeClose.png");
 const userIcon = require("../assets/user.png");
-const bg_image = require("../assets/loginpath.png");
+const bg_image = require("../assets/bg.png");
+const backArrow = require("../assets/backarrow.png");
 
 const screenHeight = Dimensions.get("window").height;
 const screenWidth = Dimensions.get("window").width;
@@ -37,18 +39,32 @@ const AddPasswordPage = ({ navigation }) => {
           resizeMode="cover"
           style={styles.image}
         >
+          <View style={styles.navigationContainer}>
+            <View style={styles.navigationImageContainer}>
+              <Image
+                source={backArrow}
+                resizeMode="contain"
+                style={styles.navigationImage}
+              />
+            </View>
+          </View>
           <View style={styles.textContainer}>
             <Text style={{ fontSize: 40, color: "white", fontWeight: "bold" }}>
               Add a Password
             </Text>
           </View>
+
           <View style={styles.loginContainer}>
             <View style={styles.LoginContent}>
               <View style={styles.personalInfo}>
                 <Select />
-                <Input type="text" placeholder="First Name" source={userIcon} />
-                <Input type="text" placeholder="Last Name" source={userIcon} />
-                <Input type="text" placeholder="Email" source={emailIcon} />
+
+                <Input
+                  type="text"
+                  placeholder="Account Name"
+                  source={userIcon}
+                />
+                <Input type="text" placeholder="Username" source={userIcon} />
                 <Input
                   secureTextEntry={true}
                   placeholder="Password"
@@ -63,21 +79,8 @@ const AddPasswordPage = ({ navigation }) => {
                 />
               </View>
               <View style={styles.submitSection}>
-                <ModalComp name="Sign Up" />
+                <ModalComp name="Add Password" />
                 {/* <SignButtons name="Sign Up" /> */}
-                <View style={styles.infoSection}>
-                  <View>
-                    <Text style={styles.text}>Already have an account?</Text>
-                  </View>
-
-                  <View>
-                    <SignLink
-                      name="Sign In"
-                      navigation={navigation}
-                      action={"SignInPage"}
-                    />
-                  </View>
-                </View>
               </View>
             </View>
           </View>
@@ -95,7 +98,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    height: screenHeight,
+    height: screenHeight - StatusBar.currentHeight * 2,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   image: {
@@ -107,24 +110,46 @@ const styles = StyleSheet.create({
   textContainer: {
     // borderWidth: 1,
     // borderColor: "blue",
-    flex: 1,
-    justifyContent: "center",
+    height: screenHeight / 12,
+    justifyContent: "flex-start",
     alignItems: "center",
+  },
+  navigationContainer: {
+    // borderWidth: 1,
+    // borderColor: "blue",
+    // justifyContent: "center",
+    height: screenHeight / 12,
+  },
+  navigationImageContainer: {
+    // borderWidth: 1,
+    // borderColor: "red",
+
+    height: "80%",
+    width: screenWidth / 6,
+  },
+  navigationImage: {
+    flex: 1,
+    width: "100%",
   },
   loginContainer: {
     // borderWidth: 1,
     // borderColor: "red",
     flex: 2,
-    justifyContent: "center",
+    justifyContent: "flex-start",
+    paddingTop: screenHeight / 20,
     alignItems: "center",
+    backgroundColor: "#e6e6e6",
   },
   LoginContent: {
     // borderWidth: 1,
     // borderColor: "blue",
-    flex: 1,
-    width: "95%",
+    // flex: 1,
+    borderRadius: screenWidth / 20,
+    width: "90%",
+    height: screenHeight / 2,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#fff",
   },
   personalInfo: {
     // borderWidth: 1,
