@@ -117,13 +117,13 @@ const styles = StyleSheet.create({
   navigationContainer: {
     // borderWidth: 1,
     // borderColor: "blue",
-    // justifyContent: "center",
+    justifyContent: "flex-end",
     height: screenHeight / 12,
   },
   navigationImageContainer: {
     // borderWidth: 1,
     // borderColor: "red",
-
+    // justifyContent: "flex-end",
     height: "80%",
     width: screenWidth / 6,
   },
