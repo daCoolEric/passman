@@ -32,61 +32,57 @@ const screenWidth = Dimensions.get("window").width;
 
 const AddPasswordPage = ({ navigation }) => {
   return (
-    <KeyboardAvoidingWrapper>
-      <SafeAreaView style={styles.container}>
-        <ImageBackground
-          source={bg_image}
-          resizeMode="cover"
-          style={styles.image}
-        >
-          <View style={styles.navigationContainer}>
-            <View style={styles.navigationImageContainer}>
-              <Image
-                source={backArrow}
-                resizeMode="contain"
-                style={styles.navigationImage}
-              />
-            </View>
+    <SafeAreaView style={styles.container}>
+      <ImageBackground
+        source={bg_image}
+        resizeMode="cover"
+        style={styles.image}
+      >
+        <View style={styles.navigationContainer}>
+          <View style={styles.navigationImageContainer}>
+            <Image
+              source={backArrow}
+              resizeMode="contain"
+              style={styles.navigationImage}
+            />
           </View>
           <View style={styles.textContainer}>
-            <Text style={{ fontSize: 40, color: "white", fontWeight: "bold" }}>
+            <Text style={styles.heading}>
               Add a Password
+              {/* {alert(
+                `Screen Width: ${screenWidth} \nScreen Height: ${screenHeight}`
+              )} */}
             </Text>
           </View>
+        </View>
+        <KeyboardAvoidingWrapper>
+          <View style={styles.LoginContent}>
+            <View style={styles.personalInfo}>
+              <Select />
 
-          <View style={styles.loginContainer}>
-            <View style={styles.LoginContent}>
-              <View style={styles.personalInfo}>
-                <Select />
-
-                <Input
-                  type="text"
-                  placeholder="Account Name"
-                  source={userIcon}
-                />
-                <Input type="text" placeholder="Username" source={userIcon} />
-                <Input
-                  secureTextEntry={true}
-                  placeholder="Password"
-                  source={padLockIcon}
-                  view={eyeCloseIcon}
-                />
-                <Input
-                  secureTextEntry={true}
-                  placeholder="Confirm Password"
-                  source={padLockIcon}
-                  view={eyeCloseIcon}
-                />
-              </View>
-              <View style={styles.submitSection}>
-                <ModalComp name="Add Password" />
-                {/* <SignButtons name="Sign Up" /> */}
-              </View>
+              <Input type="text" placeholder="Account Name" source={userIcon} />
+              <Input type="text" placeholder="Username" source={userIcon} />
+              <Input
+                secureTextEntry={true}
+                placeholder="Password"
+                source={padLockIcon}
+                view={eyeCloseIcon}
+              />
+              <Input
+                secureTextEntry={true}
+                placeholder="Confirm Password"
+                source={padLockIcon}
+                view={eyeCloseIcon}
+              />
+            </View>
+            <View style={styles.submitSection}>
+              <ModalComp name="Add Password" />
+              {/* <SignButtons name="Sign Up" /> */}
             </View>
           </View>
-        </ImageBackground>
-      </SafeAreaView>
-    </KeyboardAvoidingWrapper>
+        </KeyboardAvoidingWrapper>
+      </ImageBackground>
+    </SafeAreaView>
   );
 };
 
@@ -98,8 +94,51 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    height: screenHeight - StatusBar.currentHeight * 2,
+    height: screenHeight,
+    width: screenWidth,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+  },
+  navigationContainer: {
+    borderWidth: 1,
+    borderColor: "red",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    flex: 0.18,
+  },
+  loginContainer: {
+    borderWidth: 1,
+    borderColor: "red",
+    flex: 1,
+    justifyContent: "center",
+
+    alignItems: "center",
+    backgroundColor: "#e6e6e6",
+  },
+  navigationImageContainer: {
+    // borderWidth: 1,
+    // borderColor: "blue",
+    flex: 0.2,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  navigationImage: {
+    // borderWidth: 1,
+    // borderColor: "red",
+    flex: 1,
+    width: "70%",
+  },
+  textContainer: {
+    // borderWidth: 1,
+    // borderColor: "blue",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  heading: {
+    fontSize: screenWidth / 11,
+    color: "white",
+    fontWeight: "bold",
   },
   image: {
     flex: 1,
@@ -107,45 +146,13 @@ const styles = StyleSheet.create({
     width: screenWidth,
     height: screenHeight,
   },
-  textContainer: {
-    // borderWidth: 1,
-    // borderColor: "blue",
-    height: screenHeight / 12,
-    justifyContent: "flex-start",
-    alignItems: "center",
-  },
-  navigationContainer: {
-    // borderWidth: 1,
-    // borderColor: "blue",
-    justifyContent: "flex-end",
-    height: screenHeight / 12,
-  },
-  navigationImageContainer: {
-    // borderWidth: 1,
-    // borderColor: "red",
-    // justifyContent: "flex-end",
-    height: "80%",
-    width: screenWidth / 6,
-  },
-  navigationImage: {
-    flex: 1,
-    width: "100%",
-  },
-  loginContainer: {
-    // borderWidth: 1,
-    // borderColor: "red",
-    flex: 2,
-    justifyContent: "flex-start",
-    paddingTop: screenHeight / 20,
-    alignItems: "center",
-    backgroundColor: "#e6e6e6",
-  },
+
   LoginContent: {
-    // borderWidth: 1,
-    // borderColor: "blue",
-    // flex: 1,
+    borderWidth: 1,
+    borderColor: "blue",
+    flex: 1,
     borderRadius: screenWidth / 20,
-    width: "90%",
+    width: "100%",
     height: screenHeight / 2,
     justifyContent: "center",
     alignItems: "center",

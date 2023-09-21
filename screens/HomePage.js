@@ -33,7 +33,7 @@ const screenOptions = {
     right: 0,
     left: 0,
     elevation: 0,
-    height: Platform.OS == "ios" ? 90 : 60,
+    height: Platform.OS == "ios" ? 90 : screenHeight / 13,
     backgroundColor: "#6a3cf7",
   },
 };
@@ -191,6 +191,8 @@ const styles = StyleSheet.create({
     // borderColor: "red",
   },
   addIcon: {
+    // borderWidth: 1,
+    // borderColor: "red",
     resizeMode: "contain",
     width: "100%",
     height: "100%",
@@ -216,7 +218,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#6a3cf7",
     width: Platform.OS == "ios" ? 60 : 70,
     height: Platform.OS == "ios" ? 60 : 70,
-    top: Platform.OS == "ios" ? -25 : -25,
+    top: Platform.OS == "ios" ? -25 : -screenHeight / 25,
     borderRadius: Platform.OS == "ios" ? 30 : 35,
   },
 });

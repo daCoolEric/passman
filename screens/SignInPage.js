@@ -20,24 +20,28 @@ import ModalComp from "../components/Modal";
 const emailIcon = require("../assets/email.png");
 const padLockIcon = require("../assets/padlock.png");
 const eyeCloseIcon = require("../assets/eyeClose.png");
-const bg_image = require("../assets/loginpath.png");
+const bg_image = require("../assets/signBg.png");
 
 const screenHeight = Dimensions.get("window").height;
 const screenWidth = Dimensions.get("window").width;
 
 const SignInPage = ({ navigation }) => {
   return (
-    <KeyboardAvoidingWrapper>
-      <SafeAreaView style={styles.container}>
-        <ImageBackground
-          source={bg_image}
-          resizeMode="stretch"
-          style={styles.image}
-        >
+    <SafeAreaView style={styles.container}>
+      <KeyboardAvoidingWrapper>
+        <View style={styles.wrapper}>
           <View style={styles.textContainer}>
-            <Text style={{ fontSize: 40, color: "white", fontWeight: "bold" }}>
-              Hello, Sign In
-            </Text>
+            <ImageBackground
+              source={bg_image}
+              resizeMode="cover"
+              style={styles.image}
+            >
+              <Text
+                style={{ fontSize: 40, color: "white", fontWeight: "bold" }}
+              >
+                Hello, Sign In
+              </Text>
+            </ImageBackground>
           </View>
           <View style={styles.loginContainer}>
             <View style={styles.LoginContent}>
@@ -100,9 +104,9 @@ const SignInPage = ({ navigation }) => {
               </View>
             </View>
           </View>
-        </ImageBackground>
-      </SafeAreaView>
-    </KeyboardAvoidingWrapper>
+        </View>
+      </KeyboardAvoidingWrapper>
+    </SafeAreaView>
   );
 };
 
@@ -117,36 +121,50 @@ const styles = StyleSheet.create({
     height: screenHeight,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
+
   image: {
-    borderWidth: 1,
-    borderColor: "blue",
+    // borderWidth: 1,
+    // borderColor: "red",
     flex: 1,
     justifyContent: "center",
     width: screenWidth,
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  wrapper: {
+    // borderWidth: 1,
+    // borderColor: "red",
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: null,
+    width: screenWidth,
     height: screenHeight,
-    paddingBottom: 0,
   },
   textContainer: {
     // borderWidth: 1,
     // borderColor: "blue",
-    flex: 1,
+    flex: 0.2,
     justifyContent: "center",
     alignItems: "center",
   },
   loginContainer: {
     // borderWidth: 1,
     // borderColor: "red",
-    flex: 2,
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
   LoginContent: {
     // borderWidth: 1,
     // borderColor: "blue",
-    flex: 1,
+    borderRadius: screenWidth / 12,
+    // flex: 1,
     width: "95%",
+    height: "70%",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#fff",
   },
   personalInfo: {
     // borderWidth: 1,
@@ -224,7 +242,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "95%",
     height: "100%",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     alignItems: "center",
   },
   infoSection: {

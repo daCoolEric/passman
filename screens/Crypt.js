@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import React from "react";
 
+const screenWidth = Dimensions.get("screen").width;
 const screenHeight = Dimensions.get("screen").height;
 
 const backArrow = require("../assets/backarrow.png");
@@ -104,10 +105,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "center",
     height: screenHeight - StatusBar.currentHeight * 2,
-    paddingTop:
-      Platform.OS === "android"
-        ? StatusBar.currentHeight
-        : StatusBar.currentHeight * 2,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     borderWidth: 1,
     borderColor: "red",
   },
@@ -127,16 +125,16 @@ const styles = StyleSheet.create({
     height: "90%",
   },
   passwordsContainer: {
-    borderWidth: 1,
-    borderColor: "red",
+    // borderWidth: 1,
+    // borderColor: "red",
     flex: 1,
-    height: "90%",
+    height: screenHeight - StatusBar.currentHeight * 5,
   },
   headerContainer: {
     // borderWidth: 1,
     // borderColor: "red",
     flexDirection: "row",
-    height: StatusBar.currentHeight * 2.5,
+    height: StatusBar.currentHeight * 1.5,
   },
   headerWrapper: {
     // borderWidth: 1,
@@ -156,7 +154,7 @@ const styles = StyleSheet.create({
   backContainer: {
     // borderWidth: 1,
     // borderColor: "red",
-    height: StatusBar.currentHeight * 2.5,
+    height: StatusBar.currentHeight * 1.5,
     justifyContent: "center",
     alignItems: "center",
   },

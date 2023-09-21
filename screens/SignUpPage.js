@@ -21,24 +21,29 @@ const emailIcon = require("../assets/email.png");
 const padLockIcon = require("../assets/padlock.png");
 const eyeCloseIcon = require("../assets/eyeClose.png");
 const userIcon = require("../assets/user.png");
-const bg_image = require("../assets/loginpath.png");
+const bg_image = require("../assets/signBg.png");
 
 const screenHeight = Dimensions.get("window").height;
 const screenWidth = Dimensions.get("window").width;
 
 const SignUpPage = ({ navigation }) => {
   return (
-    <KeyboardAvoidingWrapper>
-      <SafeAreaView style={styles.container}>
-        <ImageBackground
-          source={bg_image}
-          resizeMode="cover"
-          style={styles.image}
-        >
+    //
+    <SafeAreaView style={styles.container}>
+      <KeyboardAvoidingWrapper>
+        <View style={styles.wrapper}>
           <View style={styles.textContainer}>
-            <Text style={{ fontSize: 40, color: "white", fontWeight: "bold" }}>
-              Hello, Sign Up
-            </Text>
+            <ImageBackground
+              source={bg_image}
+              resizeMode="cover"
+              style={styles.image}
+            >
+              <Text
+                style={{ fontSize: 40, color: "white", fontWeight: "bold" }}
+              >
+                Hello, Sign Up
+              </Text>
+            </ImageBackground>
           </View>
           <View style={styles.loginContainer}>
             <View style={styles.LoginContent}>
@@ -78,9 +83,10 @@ const SignUpPage = ({ navigation }) => {
               </View>
             </View>
           </View>
-        </ImageBackground>
-      </SafeAreaView>
-    </KeyboardAvoidingWrapper>
+        </View>
+      </KeyboardAvoidingWrapper>
+    </SafeAreaView>
+    // </KeyboardAvoidingWrapper>
   );
 };
 
@@ -89,39 +95,55 @@ export default SignUpPage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
     height: screenHeight,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   image: {
+    // borderWidth: 1,
+    // borderColor: "red",
     flex: 1,
     justifyContent: "center",
+    width: screenWidth,
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  wrapper: {
+    // borderWidth: 1,
+    // borderColor: "red",
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: null,
     width: screenWidth,
     height: screenHeight,
   },
   textContainer: {
     // borderWidth: 1,
     // borderColor: "blue",
-    flex: 1,
+    flex: 0.2,
     justifyContent: "center",
     alignItems: "center",
   },
   loginContainer: {
     // borderWidth: 1,
     // borderColor: "red",
-    flex: 2,
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
   LoginContent: {
     // borderWidth: 1,
     // borderColor: "blue",
-    flex: 1,
+    borderRadius: screenWidth / 12,
+    // flex: 1,
     width: "95%",
+    height: "90%",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#fff",
   },
   personalInfo: {
     // borderWidth: 1,
