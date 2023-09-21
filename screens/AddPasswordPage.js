@@ -24,7 +24,7 @@ const emailIcon = require("../assets/email.png");
 const padLockIcon = require("../assets/padlock.png");
 const eyeCloseIcon = require("../assets/eyeClose.png");
 const userIcon = require("../assets/user.png");
-const bg_image = require("../assets/bg.png");
+const bg_image = require("../assets/signBg.png");
 const backArrow = require("../assets/backarrow.png");
 
 const screenHeight = Dimensions.get("window").height;
@@ -33,55 +33,63 @@ const screenWidth = Dimensions.get("window").width;
 const AddPasswordPage = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
-      <ImageBackground
-        source={bg_image}
-        resizeMode="cover"
-        style={styles.image}
-      >
-        <View style={styles.navigationContainer}>
-          <View style={styles.navigationImageContainer}>
-            <Image
-              source={backArrow}
-              resizeMode="contain"
-              style={styles.navigationImage}
-            />
-          </View>
-          <View style={styles.textContainer}>
-            <Text style={styles.heading}>
-              Add a Password
-              {/* {alert(
+      <KeyboardAvoidingWrapper>
+        <View style={styles.wrapper}>
+          <View style={styles.navigationContainer}>
+            <ImageBackground
+              source={bg_image}
+              resizeMode="cover"
+              style={styles.image}
+            >
+              <View style={styles.navigationImageContainer}>
+                <Image
+                  source={backArrow}
+                  resizeMode="contain"
+                  style={styles.navigationImage}
+                />
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.heading}>
+                  Add a Password
+                  {/* {alert(
                 `Screen Width: ${screenWidth} \nScreen Height: ${screenHeight}`
               )} */}
-            </Text>
+                </Text>
+              </View>
+            </ImageBackground>
+          </View>
+          <View style={styles.LoginContainer}>
+            <View style={styles.LoginContent}>
+              <View style={styles.personalInfo}>
+                <Select />
+
+                <Input
+                  type="text"
+                  placeholder="Account Name"
+                  source={userIcon}
+                />
+                <Input type="text" placeholder="Username" source={userIcon} />
+                <Input
+                  secureTextEntry={true}
+                  placeholder="Password"
+                  source={padLockIcon}
+                  view={eyeCloseIcon}
+                />
+                <Input
+                  secureTextEntry={true}
+                  placeholder="Confirm Password"
+                  source={padLockIcon}
+                  view={eyeCloseIcon}
+                />
+              </View>
+              <View style={styles.submitSection}>
+                <ModalComp name="Add Password" />
+                {/* <SignButtons name="Sign Up" /> */}
+              </View>
+            </View>
           </View>
         </View>
-        <KeyboardAvoidingWrapper>
-          <View style={styles.LoginContent}>
-            <View style={styles.personalInfo}>
-              <Select />
-
-              <Input type="text" placeholder="Account Name" source={userIcon} />
-              <Input type="text" placeholder="Username" source={userIcon} />
-              <Input
-                secureTextEntry={true}
-                placeholder="Password"
-                source={padLockIcon}
-                view={eyeCloseIcon}
-              />
-              <Input
-                secureTextEntry={true}
-                placeholder="Confirm Password"
-                source={padLockIcon}
-                view={eyeCloseIcon}
-              />
-            </View>
-            <View style={styles.submitSection}>
-              <ModalComp name="Add Password" />
-              {/* <SignButtons name="Sign Up" /> */}
-            </View>
-          </View>
-        </KeyboardAvoidingWrapper>
-      </ImageBackground>
+      </KeyboardAvoidingWrapper>
     </SafeAreaView>
   );
 };
@@ -99,26 +107,36 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   navigationContainer: {
-    borderWidth: 1,
-    borderColor: "red",
-    flexDirection: "row",
+    // borderWidth: 1,
+    // borderColor: "blue",
     justifyContent: "space-evenly",
     alignItems: "center",
-    flex: 0.18,
+    flex: 0.17,
   },
-  loginContainer: {
-    borderWidth: 1,
-    borderColor: "red",
+  wrapper: {
+    // borderWidth: 1,
+    // borderColor: "red",
     flex: 1,
-    justifyContent: "center",
-
+    justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#e6e6e6",
+    backgroundColor: null,
+    width: screenWidth,
+    height: screenHeight,
+  },
+  image: {
+    // borderWidth: 1,
+    // borderColor: "red",
+    flex: 1,
+    flexDirection: "row",
+    width: screenWidth,
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
   },
   navigationImageContainer: {
     // borderWidth: 1,
     // borderColor: "blue",
-    flex: 0.2,
+    flex: 0.25,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -126,34 +144,23 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     // borderColor: "red",
     flex: 1,
-    width: "70%",
+    width: "45%",
   },
-  textContainer: {
+  LoginContainer: {
     // borderWidth: 1,
-    // borderColor: "blue",
+    // borderColor: "green",
     flex: 1,
+    width: "100%",
     justifyContent: "center",
     alignItems: "center",
+    marginBottom: screenHeight / 13,
   },
-  heading: {
-    fontSize: screenWidth / 11,
-    color: "white",
-    fontWeight: "bold",
-  },
-  image: {
-    flex: 1,
-    justifyContent: "center",
-    width: screenWidth,
-    height: screenHeight,
-  },
-
   LoginContent: {
-    borderWidth: 1,
-    borderColor: "blue",
-    flex: 1,
+    // borderWidth: 1,
+    // borderColor: "blue",
     borderRadius: screenWidth / 20,
-    width: "100%",
-    height: screenHeight / 2,
+    width: "90%",
+    height: "70%",
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
@@ -166,6 +173,28 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     alignItems: "center",
   },
+  loginContainer: {
+    // borderWidth: 1,
+    // borderColor: "red",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#e6e6e6",
+  },
+
+  textContainer: {
+    // borderWidth: 1,
+    // borderColor: "blue",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "flex-start",
+  },
+  heading: {
+    fontSize: screenWidth / 11,
+    color: "white",
+    fontWeight: "bold",
+  },
+
   emailContainer: {
     borderBottomWidth: 1,
     // borderColor: "gold",
